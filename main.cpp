@@ -60,22 +60,36 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
 
 int main(){
     
-    int vertices = 5;
-    int edges = 7;
+    int vertices = 8;
+    int edges = 16;
     
     vector<vector<int>> vec( edges , vector<int>(3));
     
-    vec[0] = { 0,1,7};
-    vec[1] = { 0,2,1};
-    vec[2] = { 0,3,2};
-    vec[3] = { 2,1,3};
-    vec[4] = { 3,1,5};
-    vec[5] = { 4,1,1};
-    vec[6] = { 4,3,7};
+    vec[0] = { 0,1,400};
+    vec[1] = { 0,3,300};
+    vec[2] = { 0,4,450};
+    vec[3] = { 1,2,350};
+    vec[4] = { 1,3,150};
+    vec[5] = { 1,7,500};
+    vec[6] = { 2,3,200};
+    vec[7] = { 2,4,450};
+    vec[8] = { 2,7,200};
+    vec[9] = { 3,4,200};
+    vec[10] = { 3,6,350};
+    vec[11] = { 3,7,600};
+    vec[12] = { 4,5,600};
+    vec[13] = { 5,6,400};
+    vec[14] = { 5,7,1400};
+    vec[15] = { 0,6,500};
+   
     
     int source;
+    int dest;
+    cout<<"0->CVR Hostel | 1->Carbon Mess | 2->Lecture Hall | 3->POD | "<<endl;
+    cout<<"4->Library(LRC) | 5->Gate | 6->Abhinandan | 7->Health centre"<<endl;
     cout<<"Enter starting point: " ;
     cin>>source;
+    cin>>dest;
     
     vector< int> dist(vertices) ;
     
@@ -83,10 +97,8 @@ int main(){
         
         dist[i]= dijkstra(vec, vertices, edges, source)[i];
     }
-    
-    for(auto i:dist){
-        
-        cout<< i<<" ";
+
+        cout<< dist[dest];
     }
     
     cout<<endl;
